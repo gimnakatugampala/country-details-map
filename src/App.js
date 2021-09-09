@@ -1,6 +1,6 @@
 import React from 'react'
 
- import Map from './components/Map/Map'
+ import MapContainer from './components/Map/MapContainer'
 
 const App = () => {
 
@@ -8,7 +8,7 @@ const App = () => {
 
     return  (
       
-      <Map />
+      <MapContainer />
     
     ) 
 }
