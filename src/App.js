@@ -1,11 +1,16 @@
 import React from 'react'
 
+ import Map from './components/Map/Map'
+
 const App = () => {
-    return (
-        <div>
-            <h1>Hello World!</h1>
-        </div>
-    )
+
+
+
+    return  (
+      
+      <Map />
+    
+    ) 
 }
 
 export default App
