@@ -1,14 +1,28 @@
-import React from 'react'
+import React,{useState} from 'react'
 
  import MapContainer from './components/Map/MapContainer'
 
 const App = () => {
 
+    // Maker State
+    const [state, setState] = useState({
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+  
+      // Coordinates of the map
+      mapCenter:{
+        lat: 7.8731,
+        lng: 80.7718
+      }
+    })
+  
+
 
 
     return  (
       
-      <MapContainer />
+      <MapContainer setState={setState} state={state} />
     
     ) 
 }

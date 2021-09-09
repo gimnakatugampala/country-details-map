@@ -1,34 +1,14 @@
 import React, { useState } from 'react'
 import {GoogleApiWrapper,Map,InfoWindow, Marker, } from 'google-maps-react';
+import PlacesAutocomplete, { geocodeByAddress,getLatLng} from 'react-places-autocomplete';
 import mapStyles from './styles'
 
 
 
 
-const MapContainer = ({google}) => {
-
-  // Maker State
-  const [state, setState] = useState({
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {},
-
-    // Coordinates of the map
-    mapCenter:{
-      lat: 7.8731,
-      lng: 80.7718
-    }
-  })
+const MapContainer = ({google,state,setState}) => {
 
 
-
-  // Maker Click
-  const onMarkerClick = (props, marker, e) =>
-  setState({
-    selectedPlace: props,
-    activeMarker: marker,
-    showingInfoWindow: true
-  });
 
   // Custom the Map
   const _mapLoaded = (mapProps, map) =>  {
