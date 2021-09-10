@@ -69,7 +69,10 @@ const MapContainer = ({google,lng,lat}) => {
 
 // Loading Map ..
 const LoadingContainer = (props) => (
-  <div>Fancy loading container!</div>
+  <div style={{backgroundColor:'#203640',width:'100vw',height:'100vh',margin:'0',overflow:'hidden'}}>
+
+    <div className="loader"></div>
+  </div>
 )
 
 export default GoogleApiWrapper({
