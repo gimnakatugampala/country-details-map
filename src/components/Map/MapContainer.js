@@ -1,23 +1,27 @@
-import React,{useState} from 'react'
+import React,{ useEffect, useState} from 'react'
 import {GoogleApiWrapper,Map, Marker, } from 'google-maps-react';
 
 import mapStyles from './styles'
 
 
-const MapContainer = ({google}) => {
+const MapContainer = ({google,lng,lat}) => {
 
-    // Maker State
-    const [state, setState] = useState({
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
-  
-      // Coordinates of the map
-      mapCenter:{
-        lat: 7.8731,
-        lng: 80.7718
-      }
-    })
+
+
+      // Maker State
+      const [state, setState] = useState({
+        showingInfoWindow: false,
+        activeMarker: {},
+        selectedPlace: {},
+    
+        // // Coordinates of the map
+        // mapCenter:{
+        //   lat: lat == '' ?  7.8731 : +lat ,
+        //   lng: lng == '' ? 80.7718 : +lng
+        // }
+      })
+
+      
 
   // Custom the Map
   const _mapLoaded = (mapProps, map) =>  {
@@ -26,13 +30,12 @@ const MapContainer = ({google}) => {
     })
  }
 
-
   
   return (
     <div>
         <Map 
         google={google} 
-        zoom={5} 
+        zoom={2} 
         zoomControl={false}
         mapTypeControl={false}
         fullscreenControl={false}
@@ -40,8 +43,8 @@ const MapContainer = ({google}) => {
         streetViewControl={false}
         onReady={(mapProps, map) => _mapLoaded(mapProps, map)}
         initialCenter={{
-          lat:state.mapCenter.lat,
-          lng:state.mapCenter.lng
+          lat:+lat,
+          lng:+lng
         }}
       
           >
@@ -49,13 +52,13 @@ const MapContainer = ({google}) => {
             {/* Marker */}
         <Marker
          position={{
-          lat:state.mapCenter.lat,
-          lng:state.mapCenter.lng
+          lat:+lat,
+          lng:+lng
         }} 
 
         center={{
-          lat:state.mapCenter.lat,
-          lng:state.mapCenter.lng
+          lat:+lat,
+          lng:+lng
         }}
 
         />

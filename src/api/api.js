@@ -13,3 +13,11 @@ export const getAllCountries = async () =>{
     return res.json()
 
 }
+
+// Get single Country
+export const singleCountry = async (name) =>{
+    const res = await fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+
+    return res.json()
+
+}

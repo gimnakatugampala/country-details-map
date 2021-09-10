@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 
- import {getCountryLocation ,getAllCountries} from './api/api'
+ import {getCountryLocation ,getAllCountries ,singleCountry} from './api/api'
 
  import Box from '@material-ui/core/Box';
 
@@ -12,12 +12,29 @@ import React,{useState} from 'react'
 const App = () => {
 
   const [getcountry, setgetcountry] = useState('')
-  // const [cordinates, setcordinates] = useState(null)
+  const [lat, setlat] = useState(7.8731 )
+  const [lng, setlng] = useState(80.7718)
 
-  if(getcountry != ''){
-    getCountryLocation(getcountry)
-      .then(data => console.log(data.Response.View[0].Result[0].Location.DisplayPosition))
-  }
+  
+
+  
+
+    if(getcountry != ''){
+      getCountryLocation(getcountry)
+        .then(data => {
+          console.log(data.Response.View[0].Result[0].Location.DisplayPosition)
+          setlat(data.Response.View[0].Result[0].Location.DisplayPosition.Latitude)
+          setlng(data.Response.View[0].Result[0].Location.DisplayPosition.Longitude)
+        })
+
+        // Get the Details of the country
+        singleCountry(getcountry)
+        .then(data => console.log(data))
+    }
+  
+
+
+  
 
     console.log(getcountry)
 
@@ -32,10 +49,9 @@ const App = () => {
       >
 
       <Search  getAllCountries={getAllCountries}  setgetcountry={setgetcountry} />
-
       </Box>
     
-      <MapContainer />
+      <MapContainer lat={lat} lng={lng} />
       
       </div>
     
