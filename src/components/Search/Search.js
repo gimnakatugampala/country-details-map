@@ -14,6 +14,7 @@ const Search = ({getAllCountries,setgetcountry,sethide}) => {
     // Get the Country Name
     const handleChange = (e) =>{
         setgetcountry(e.value)
+        sethide(true)
     }
 
 
