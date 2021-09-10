@@ -16,9 +16,14 @@ const App = () => {
   const [lat, setlat] = useState(7.8731 )
   const [lng, setlng] = useState(80.7718)
   const [details, setdetails] = useState(null)
+  const [hide, sethide] = useState(false)
+
+
 
 
   useEffect(() => {
+
+    
 
     
     if(getcountry != ''){
@@ -54,11 +59,19 @@ const App = () => {
     //     singleCountry(getcountry)
     //     .then(data => setdetails(data[0]))
     // }
+
+    if(hide == true){
+      setTimeout(() => {
+
+        sethide(false)
+
+      },8000)
+    }
   
 
 
   
-
+console.log(hide)
     // console.log(getcountry)
 
     return  (
@@ -71,10 +84,10 @@ const App = () => {
         style={{width:'70%',margin:'auto'}}
       >
 
-      <Search  getAllCountries={getAllCountries}  setgetcountry={setgetcountry} />
+      <Search  getAllCountries={getAllCountries}  setgetcountry={setgetcountry} sethide={sethide} />
       </Box>
 
-      {details && 
+      {details && hide && 
        <Box
        className="details"
        position="absolute"

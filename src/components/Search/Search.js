@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 
 
-const Search = ({getAllCountries,setgetcountry}) => {
+const Search = ({getAllCountries,setgetcountry,sethide}) => {
 
     let options = []
 
