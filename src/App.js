@@ -23,15 +23,15 @@ const App = () => {
     return  (
       <div>
         <Box
-  
         position="absolute"
         top={40}
         zIndex="tooltip"
         left={70}
-
         style={{width:'70%',margin:'auto'}}
       >
+
       <Search  getAllCountries={getAllCountries} getcountry={getcountry} setgetcountry={setgetcountry} />
+      
       </Box>
     
       <MapContainer />
