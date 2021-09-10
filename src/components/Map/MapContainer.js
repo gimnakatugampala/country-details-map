@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import {GoogleApiWrapper,Map, Marker, } from 'google-maps-react';
-import { Autocomplete } from '@react-google-maps/api'
 
 import mapStyles from './styles'
 
@@ -27,26 +26,10 @@ const MapContainer = ({google}) => {
     })
  }
 
- const [autocomplate, setAutocomplate] = useState(null)
-
- const onLoad = (autoC) => setAutocomplate(autoC)
-
- const onPlaceChanged = () =>{
-     const lat = autocomplate.getPlace().geometry.location.lat()
-     const lng = autocomplate.getPlace().geometry.location.lng()
-
-    //  setCoordinates({lat,lng})
-    console.log(lat,lng)
- }
 
   
   return (
     <div>
-
-      <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-                   <input  type="text" placeholder="search.." />
-                </Autocomplete>
-
         <Map 
         google={google} 
         zoom={5} 
@@ -88,7 +71,7 @@ const LoadingContainer = (props) => (
 )
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyDI8vXzzmB6Fa8VKwT421nk56z6JsNvsUg'),
+  apiKey: ('AIzaSyBxZQL4C_W3OX1CkfJSTEC70CXlEGoQeuI'),
   LoadingContainer: LoadingContainer,
   libraries: ["places"]
 })(MapContainer)
