@@ -19,7 +19,7 @@ const Search = ({getAllCountries}) => {
 
 
     return (
-       <div>
+       <div className="select" >
           <Select options={options} />
        </div>
      
