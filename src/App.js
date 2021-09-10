@@ -14,11 +14,12 @@ const App = () => {
   const [getcountry, setgetcountry] = useState('')
   // const [cordinates, setcordinates] = useState(null)
 
+  if(getcountry != ''){
+    getCountryLocation(getcountry)
+      .then(data => console.log(data.Response.View[0].Result[0].Location.DisplayPosition))
+  }
 
-  getCountryLocation()
-    .then(data => console.log(data.Response.View[0].Result[0].Location.DisplayPosition))
-
-
+    console.log(getcountry)
 
     return  (
       <div>
@@ -30,8 +31,8 @@ const App = () => {
         style={{width:'70%',margin:'auto'}}
       >
 
-      <Search  getAllCountries={getAllCountries} getcountry={getcountry} setgetcountry={setgetcountry} />
-      
+      <Search  getAllCountries={getAllCountries}  setgetcountry={setgetcountry} />
+
       </Box>
     
       <MapContainer />

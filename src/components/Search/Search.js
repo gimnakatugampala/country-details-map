@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 
 
-const Search = ({getAllCountries}) => {
+const Search = ({getAllCountries,setgetcountry}) => {
 
     let options = []
 
@@ -11,16 +11,15 @@ const Search = ({getAllCountries}) => {
         data.forEach(names => options.push({value:names.name,label:names.name}))
     })
 
-    // const options = [
-    //     { value: getcountry, label: getcountry },
-    //     { value: 'strawberry', label: 'Strawberry' },
-    //     { value: 'vanilla', label: 'Vanilla' }
-    //   ]
+    // Get the Country Name
+    const handleChange = (e) =>{
+        setgetcountry(e.value)
+    }
 
 
     return (
-       <div className="select" >
-          <Select options={options} />
+       <div>
+          <Select options={options} onChange={handleChange}  />
        </div>
      
     )
