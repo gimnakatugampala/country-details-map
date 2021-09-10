@@ -81,7 +81,7 @@ const App = () => {
        bottom={0}
        zIndex="tooltip"
        bgcolor="#333"
-       style={{width:'90%',color:'white',margin:'0',overflow:'hidden',borderTopLeftRadius:'20px',borderTopRightRadius:'20px',padding:'5%'}}
+       style={{width:'96%',color:'white',margin:'0',overflow:'hidden',borderTopLeftRadius:'20px',borderTopRightRadius:'20px',padding:'2%'}}
      >
        <SlideNav details={details} />
        </Box>
