@@ -2,3 +2,8 @@
     margin: 0;
 }
 
+.details{
+    /* padding-bottom: 150px; */
+    display: flex;
+    justify-content: space-between;
+}

@@ -30,7 +30,6 @@ const MapContainer = ({google,lng,lat}) => {
     })
  }
 
-  
   return (
     <div>
         <Map 

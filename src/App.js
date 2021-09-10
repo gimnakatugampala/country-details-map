@@ -6,6 +6,7 @@ import React,{useState,useEffect} from 'react'
 
  import MapContainer from './components/Map/MapContainer'
  import Search from './components/Search/Search'
+ import SlideNav from './components/SlideNav/SlideNav';
 
 
 
@@ -14,29 +15,51 @@ const App = () => {
   const [getcountry, setgetcountry] = useState('')
   const [lat, setlat] = useState(7.8731 )
   const [lng, setlng] = useState(80.7718)
+  const [details, setdetails] = useState(null)
 
-  
 
-  
+  useEffect(() => {
 
+    
     if(getcountry != ''){
       getCountryLocation(getcountry)
         .then(data => {
-          console.log(data.Response.View[0].Result[0].Location.DisplayPosition)
+          // console.log(data.Response.View[0].Result[0].Location.DisplayPosition)
           setlat(data.Response.View[0].Result[0].Location.DisplayPosition.Latitude)
           setlng(data.Response.View[0].Result[0].Location.DisplayPosition.Longitude)
         })
 
         // Get the Details of the country
         singleCountry(getcountry)
-        .then(data => console.log(data))
+        .then(data => setdetails(data[0]))
     }
   
+   
+
+
+
+  }, [getcountry])
+
+  
+
+    // if(getcountry != ''){
+    //   getCountryLocation(getcountry)
+    //     .then(data => {
+    //       // console.log(data.Response.View[0].Result[0].Location.DisplayPosition)
+    //       setlat(data.Response.View[0].Result[0].Location.DisplayPosition.Latitude)
+    //       setlng(data.Response.View[0].Result[0].Location.DisplayPosition.Longitude)
+    //     })
+
+    //     // Get the Details of the country
+    //     singleCountry(getcountry)
+    //     .then(data => setdetails(data[0]))
+    // }
+  
 
 
   
 
-    console.log(getcountry)
+    // console.log(getcountry)
 
     return  (
       <div>
@@ -50,7 +73,22 @@ const App = () => {
 
       <Search  getAllCountries={getAllCountries}  setgetcountry={setgetcountry} />
       </Box>
-    
+      
+      {details && 
+       <Box
+       className="details"
+       position="absolute"
+       bottom={0}
+       zIndex="tooltip"
+       bgcolor="#333"
+       style={{width:'90%',color:'white',margin:'0',overflow:'hidden',borderTopLeftRadius:'20px',borderTopRightRadius:'20px',padding:'5%'}}
+     >
+       <SlideNav details={details} />
+       </Box>
+      
+      }
+     
+
       <MapContainer lat={lat} lng={lng} />
       
       </div>
