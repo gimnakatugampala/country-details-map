@@ -11,15 +11,15 @@ const SlideNav = ({details}) => {
         <div className="details">
             {/* Section one */}
             <div className="section-a">
-            <h3 style={{whiteSpace:'nowrap'}}>United States of America (USA)</h3>
-            <h5>Whishington DC</h5>
-            <img src="https://restcountries.eu/data/usa.svg" style={{width:'100px',height:"50px",margin:'5px'}} />
+            <h3 style={{whiteSpace:'nowrap'}}>{details.name}  ({details.alpha3Code})</h3>
+            <h5>{details.capital}</h5>
+            <img src={details.flag} style={{width:'100px',height:"50px",margin:'5px'}} />
             <ul style={{listStyle:'none',padding:'0'}}>
-                <li style={{padding:'5px'}}>Populations : <span style={{color:'#8FC4DD'}}> 4000 </span></li>
-                <li>Region : North America</li>
-                <li>Sub Region : North AMerica</li>
-                <li>Currency: United States Dollar ($)</li>
-                <li>Top Domain : .lk</li>
+                <li style={{padding:'5px'}}>Populations : <span style={{color:'#8FC4DD'}}> {details.population} </span></li>
+                <li style={{padding:'5px'}}>Region : <span style={{color:'#8FC4DD'}}> {details.region} </span></li>
+                <li style={{padding:'5px'}}>Sub Region : <span style={{color:'#8FC4DD'}}> {details.subregion} </span></li>
+                <li style={{padding:'5px'}}>Currency: {details.currencies.map((currency,index) => <span key={index} style={{color:'#8FC4DD'}}> {currency.name} ({currency.symbol}) </span>)} </li>
+                <li style={{padding:'5px'}}>Top Domain : <span style={{color:'#8FC4DD'}}> {details.topLevelDomain} </span></li>
             </ul>
             </div>
 
@@ -27,22 +27,19 @@ const SlideNav = ({details}) => {
             <div className="section-b">
                 <h4 style={{color:'#8FC4DD'}}>Languages</h4>
                 <ul style={{listStyle:'none'}}>
-                    <li>Sinhala</li>
-                    <li>Sinhala</li>
+                    {details.languages.map((language,index) => <li key={index}> {language.name} - {language.nativeName} </li>)}
                 </ul>
                 <h4 style={{color:'#8FC4DD'}}>Borders</h4>
                 <ul style={{listStyle:'none'}}>
-                    <li>CANA</li>
-                    <li>MX</li>
+                    {details.borders.map((border,index) => <li key={index}>{border}</li> )}
                 </ul>
                 <h4 style={{color:'#8FC4DD'}}>Timezones</h4>
                 <ul style={{listStyle:'none'}}>
-                    <li>+5:40</li>
-                    <li>+5:400</li>
+                {details.timezones.map((timezone,index) => <li key={index}>{timezone}</li> )}
                 </ul>
                 <h4 style={{color:'#8FC4DD'}}>Organizations</h4>
                 <ul style={{listStyle:'none'}}>
-                    <li>South Asian Association for Regional Cooperation (SAARC)</li>
+                {details.regionalBlocs.map((bloc,index) => <li key={index}>{bloc.name}  ({bloc.acronym})</li> )}
                 </ul>
             </div>
 
