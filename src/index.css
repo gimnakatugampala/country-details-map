@@ -7,3 +7,19 @@
     display: flex;
     justify-content: space-between;
 }
+
+.section-a{
+    margin-right: 10px;
+}
+
+
+
+@media(min-width:1000px){
+    .section-a{
+        margin-right: 30px;
+    }
+    
+    .section-b{
+           margin-left: 70px;
+    }
+}
