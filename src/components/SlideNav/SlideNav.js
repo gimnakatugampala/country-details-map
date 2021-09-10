@@ -3,7 +3,7 @@ import React from 'react'
 const SlideNav = ({details}) => {
 
  
-        console.log(details)
+        // console.log(details)
         
 
 

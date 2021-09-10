@@ -73,7 +73,7 @@ const App = () => {
 
       <Search  getAllCountries={getAllCountries}  setgetcountry={setgetcountry} />
       </Box>
-      
+
       {details && 
        <Box
        className="details"
