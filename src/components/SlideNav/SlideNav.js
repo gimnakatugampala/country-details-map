@@ -35,7 +35,9 @@ const SlideNav = ({details}) => {
                 </ul>
                 <h4 className="list-child">Timezones</h4>
                 <ul style={{listStyle:'none'}}>
+                   
                 {details.timezones.map((timezone,index) => <li key={index}>{timezone}</li> )}
+            
                 </ul>
                 <h4 className="list-child">Organizations</h4>
                 <ul style={{listStyle:'none'}}>
