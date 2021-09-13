@@ -1,6 +1,6 @@
     // Get the cordinates - Lat & lng
 export const getCountryLocation = async (country) =>{
-    const res = await fetch(`https://geocoder.ls.hereapi.com/6.2/geocode.json?searchtext=${country}&apiKey=xwFURQAbUvN8iFhAVWNrK3ewQjtllq2UGALvqZdNn3M`)
+    const res = await fetch(`http://api.positionstack.com/v1/forward?access_key=010a8fbfa0bd1d137ba1e351109cdaf1&query=${country}`)
 
     return res.json()
 
