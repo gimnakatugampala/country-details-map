@@ -29,11 +29,8 @@ const App = () => {
     if(getcountry != ''){
       getCountryLocation(getcountry)
         .then(data => {
-          // console.log(data.Response.View[0].Result[0].Location.DisplayPosition)
-          // setlat(data.Response.View[0].Result[0].Location.DisplayPosition.Latitude)
-          // setlng(data.Response.View[0].Result[0].Location.DisplayPosition.Longitude)
-          setlat(data.data[0].latitude)
-          setlng(data.data[0].longitude)
+          setlat(data[0].lat)
+          setlng(data[0].lon)
         })
 
         // Get the Details of the country

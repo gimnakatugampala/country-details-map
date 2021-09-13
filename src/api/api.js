@@ -1,6 +1,12 @@
     // Get the cordinates - Lat & lng
 export const getCountryLocation = async (country) =>{
-    const res = await fetch(`http://api.positionstack.com/v1/forward?access_key=010a8fbfa0bd1d137ba1e351109cdaf1&query=${country}`)
+    const res = await fetch(`https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=${country}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "forward-reverse-geocoding.p.rapidapi.com",
+            "x-rapidapi-key": "2af9a37521msh73b42cf0567a240p12d907jsne154ae89b3f5"
+        }
+    })
 
     return res.json()
 
